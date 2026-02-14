@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zabeeda's Old Home | Donations</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo">
+            <h1>  <img src="images/Logo.jpg" class="logo-img"><a href="index.html">Zabeeda's Old Home</a> </h1>
+                <p class="tagline">Caring for elders since 2004</p>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="donate.html" class="active">Donations</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="login.html" class="login-btn">Staff Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="donate-header">
+            <h2>Support Our Elderly</h2>
+            <p class="quote">"Every donation is a rock that builds their home of comfort and care."</p>
+        </section>
+
+        <section class="rocks-section">
+            <h3>Choose Your Donation Rock</h3>
+            <div class="rocks-container">
+                <div class="rock rock-1" data-rock="1" data-type="money">
+                    <div class="rock-icon">🪨</div>
+                    <h4>Pebble Rock</h4>
+                    <p class="rock-price">$</p>
+                    <p class="rock-desc">Financial donation for facility maintenance and upgrades</p>
+                    <div class="rock-tag">Money</div>
+                </div>
+                
+                <div class="rock rock-2" data-rock="2" data-type="clothing">
+                    <div class="rock-icon">🪨🪨</div>
+                    <h4>Boulder Rock</h4>
+                    <p class="rock-subtitle">Clothing Donation</p>
+                    <p class="rock-desc">Provide clothing items for our residents</p>
+                    <div class="rock-tag">Clothing</div>
+                </div>
+
+                <div class="rock rock-3" data-rock="3" data-type="food">
+                    <div class="rock-icon">🗿</div>
+                    <h4>Monument Rock</h4>
+                    <p class="rock-subtitle">Food Supplies</p>
+                    <p class="rock-desc">Donate food items for resident meals</p>
+                    <div class="rock-tag">Food</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="donation-form-section">
+            <h3>Donation Form</h3>
+            <form id="donation-form" action="https://script.google.com/macros/s/AKfycby3QRqOq94IdlARcKGoTw27RcA495xfqXuumSCSw5Fcd-xsqWO9NGIUhHpxNIGhI25C/exec" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name= "Name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email, phone number">Email Address/Phone Number</label>
+                        <input type="text" id="contact" name= "Email/Phone" placeholder="you@example.com/+592 XXX-XXXX" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Selected Donation Type</label>
+                        <div id="selected-rock-display" class="rock-display">
+                            <div class="rock-display-icon">🪨</div>
+                            <div class="rock-display-text">
+                                <strong>No rock selected</strong>
+                                <small>Click a rock above to choose donation type</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group" id="money-input" style="display: none;">
+                        <label for="amount">Donation Amount ($)</label>
+                        <input type="number" id="amount" min="1" placeholder="1000" value="1000">
+                        <small class="form-hint">Minimum $1000 for Pebble Rock</small>
+                    </div>
+                    
+                    <div class="form-group" id="clothing-input" style="display: none;">
+                        <label for="clothing-details">Clothing Items</label>
+                        <input type="text" id="clothing-details" placeholder="e.g., 3 shirts, 2 pants, dresses">
+                        <small class="form-hint">Describe what clothing you're donating</small>
+                    </div>
+                    
+                    <div class="form-group" id="food-input" style="display: none;">
+                        <label for="food-details">Food Items</label>
+                        <input type="text" id="food-details" placeholder="e.g., rice, canned goods, fresh vegetables">
+                        <small class="form-hint">List the food items you're donating</small>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="notes">Additional Notes (Optional)</label>
+                    <textarea id="notes" placeholder="Any special instructions or messages..." rows="3"></textarea>
+                </div>
+
+                <input type="hidden" id="rock-type" name="rock-type" value="">
+                <input type="hidden" id="rock-number" name="rock-number" value="">
+                <input type="hidden" id="donation-type" name="Donation Type" value="">
+                <input type="hidden" id="donation-details" name="Details" value="">
+                <input type="hidden" id="donation-amount" name="Amount" value="">
+                
+                <button type="submit" class="btn btn-donate">Submit Donation</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2004 Zabeeda's Old Home | West Coast Demerara | Contact: +592 701-0354 </p>
+            <p class="footer-note">Part of our CAPE IT Unit 2 Project - Digital Donation Management System</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+
+    console.log("Script is running!");
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const rocks = document.querySelectorAll('.rock');
+        
+        if (rocks.length === 0) {
+            console.error("No rocks found!");
+            return;
+        }
+        
+        console.log(`Found ${rocks.length} rocks`);
+        
+        rocks.forEach(rock => {
+            rock.addEventListener('click', function() {
+                console.log("Rock clicked!");
+            
+                rocks.forEach(r => {
+                    r.style.borderColor = '#A1AFD3';
+                    r.style.transform = '';
+                });
+                
+                this.style.borderColor = '#FF8C42';
+                this.style.transform = 'translateY(-15px)';
+                
+                const type = this.getAttribute('data-type');
+                console.log(`Type: ${type}`);
+                
+                document.getElementById('money-input').style.display = 'none';
+                document.getElementById('clothing-input').style.display = 'none';
+                document.getElementById('food-input').style.display = 'none';
+                
+                if (type === 'money') {
+                    document.getElementById('money-input').style.display = 'block';
+                } else if (type === 'clothing') {
+                    document.getElementById('clothing-input').style.display = 'block';
+                } else if (type === 'food') {
+                    document.getElementById('food-input').style.display = 'block';
+                }
+                
+                const rockTitle = this.querySelector('h4').textContent;
+                const rockIcon = this.querySelector('.rock-icon').textContent;
+                const rockTag = this.querySelector('.rock-tag').textContent;
+                
+                document.getElementById('selected-rock-display').innerHTML = `
+                    <div class="rock-display-icon">${rockIcon}</div>
+                    <div class="rock-display-text">
+                        <strong>${rockTitle}</strong> - ${rockTag}
+                        <small>${type} donation</small>
+                    </div>
+                `;
+            });
+        });
+    });
+</script>
+</body>
+</html>

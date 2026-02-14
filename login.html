@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Login | Zabeeda's Old Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo">
+            <h1>  <img src="images/Logo.jpg" class="logo-img"><a href="index.html">Zabeeda's Old Home</a> </h1>
+                <p class="tagline">Caring for elders since 2004</p>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="donate.html">Donations</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="login.html" class="login-btn">Staff Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="login-section">
+            <h2>Staff Portal Login</h2>
+            <p class="login-subtitle">Access the donation management system</p>
+            
+            <div class="login-card">
+                <form id="login-form"> 
+                    <div class="form-group">
+                        <label for="staff-id">Staff ID</label>
+                        <input type="text" id="staff-id" placeholder="Enter your staff ID" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter password" required>
+                    </div>
+                    <button type="submit" class="btn btn-login">Login to Dashboard</button>
+                </form>
+                
+                <div class="login-info">
+                    <p><strong>Note:</strong> This portal is for authorized staff only.</p>
+                    <p>Contact admin if you need access to the donation management system.</p>
+                </div>
+            </div>
+            
+            <div class="demo-credentials">
+                <h4>Demo Credentials (for testing):</h4>
+                <p>Staff ID: <code>admin1</code></p>
+                <p>Password: <code>zabeeda2026</code></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+          <div class="container">
+            <p>© 2004 Zabeeda's Old Home | West Coast Demerara | Contact: +592 701-0354 </p>
+            <p class="footer-note">Part of our CAPE IT Unit 2 Project - Digital Donation Management System</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const staffId = document.getElementById('staff-id').value;
+            const password = document.getElementById('password').value;
+
+            if (staffId === 'admin1' && password === 'zabeeda2026') {
+                alert('Login successful! Redirecting to staff dashboard...');
+            } else {
+                alert('Invalid credentials. Try: admin1 / zabeeda2026');
+            }
+        });
+    </script>
+</body>
+</html>
